@@ -1,0 +1,165 @@
+<?php
+
+class ArtistModel extends database {
+
+	static protected $active = 1;
+	static protected $pending = 0;
+	static protected $archived = -1;
+	static protected $artistname = '';
+	static protected $viewsection = 'blog';
+	
+	function __construct(){
+		$this->table = dbfield::getTables();
+	}
+	static function active(){
+		return self::$active; 
+	}
+	static function archived(){
+		return self::$archived; 
+	}
+	static function pending(){
+		return self::$pending; 
+	}
+	function setArtistName($artistname){
+		$this->artistname = $artistname;
+	}
+	function artistName(){
+		return $this->artistname;
+	}
+	function setViewSection($section){
+		$this->viewsection = $section;
+	}
+	function viewSection(){
+		return $this->viewsection;
+	}
+		
+	function getPublicArtistType(){
+		global $DB;
+		
+		$sql = 'SELECT 
+					'.dbfield::getFieldByLang().', Alias
+				FROM
+					'.$this->table['artisttype'].'
+				WHERE 
+					Status= ?
+				ORDER BY
+					Position ASC';
+		
+		$para[] = self::active();
+		return $DB->returnRes($sql,$para);
+	}
+	
+	function getDebutyearOption(){
+		$number = 10;
+		$year = date('Y')-$number;
+		for($a=0;$a<=$number;$a++){
+			$index = $year+$a;
+			$return[$index] = array($index,$index);
+		}
+		return $return;
+	}
+	
+	function getPublicGenreType(){
+		global $DB;
+		
+		$sql = 'SELECT
+					ID,'.dbfield::getFieldByLang().'
+				FROM
+					'.$this->table['genretype'].'
+				WHERE
+					Status= ?
+				ORDER BY
+					Position ASC';
+		
+		$para[] = self::active();
+		return $DB->returnRes($sql,$para);
+	}
+	
+	function getMenu(){
+		global $DB,$CONFIG;
+		
+		$sql = 'SELECT 
+					t.ID,'.dbfield::getFieldByLang('t','Type').','.dbfield::getFieldByLang('a','Name').'
+				FROM
+					'.$this->table['artisttype'].' as t
+				INNER JOIN
+					'.$this->table['artist'].' as a		
+				ON
+					a.TypeID = t.ID
+				WHERE 
+					a.Status= ?';
+		
+		$para[] = self::active();
+		if($rec = $DB->returnRes($sql,$para)){
+			$return = array();
+			foreach($rec as $v){
+				$return['item'][$v['Type']][] = array('Name'=>$v['Name'],'Url'=>$CONFIG['home_http'].'artist/profile/'.strtolower($v['Name']));
+			}
+			$returnsize = sizeof($return['item']);
+			if(12%$returnsize==0){
+				$return['block'] = 12/$returnsize;
+			}
+			
+			return $return;
+		}
+		return false;
+	}
+	
+	function getArtistPublicProfile(){
+		global $DB;
+		$sql = 'SELECT 
+					t.ID,'.dbfield::getFieldByLang('t','Type').',ao.UserName,ao.DebutDate,ao.ProfilePic,ao.Bio,ao.DebutDate,ao.State as StateID,ao.Level
+				FROM
+					'.$this->table['artisttype'].' as t
+				INNER JOIN
+					'.$this->table['user'].' as ao		
+				ON
+					ao.TypeID = t.ID
+				WHERE 
+					ao.UserName = ?
+				AND
+					ao.Status= ?';
+		$para[] = $this->artistName();
+		$para[] = self::active();
+		
+		if($res = $DB->returnVec($sql,$para)){
+			$place = $this->getPlaces(array('StateID'=>$res['StateID']));
+			$res['Place'] = $place['Place'];
+			$res['State'] = $place['State'];
+			return $res;
+		}
+		
+		
+	}
+	
+	function getPlaces($arr=array()){
+		global $Lang;
+		//toGroupOption($Data['channeltooloption'],'ChannelName')
+		
+		//$state_size = sizeof($Lang['state']);
+		$place_ct = 0;
+		$state_val = 1;
+		foreach($Lang['state'] as $state){
+			$size = sizeof($state); 
+			for($a=0;$a<$size;$a++){
+				$return[] = array($state_val,$state[$a],'State'=>$Lang['place'][$place_ct]);
+				if(sizeof($arr)>0 && $arr['StateID']==$state_val){
+					return array('Place'=>$state[$a],'State'=>$Lang['place'][$place_ct]);
+				}
+				$state_val++;
+			}
+			$place_ct++;
+		}
+		
+		return $return;
+	}
+	
+	static function renderBadge($level){
+		return '<i class="fa fa-certificate cert'.$level.'"></i>';
+	}
+	
+	function renderProfilePicSrc(){
+		//return 
+	}
+}
+?>

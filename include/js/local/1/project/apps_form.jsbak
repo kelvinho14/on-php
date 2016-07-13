@@ -1,0 +1,151 @@
+var Panel = function () {
+	return {
+		// main function to initiate the module
+		init: function () {
+			$('#date').datepicker({
+				rtl: App.isRTL(),
+				orientation: "left",
+				autoclose: true,
+				format: $('#date').attr('data-format'),
+				minDate:moment()
+			});
+			$('#submitbtn').click(function (e) {
+				if(Panel.validation()==true){
+					$('#mainform').submit();	
+				}
+			});
+			$('#duration').timepicker({
+                autoclose: true,
+                minuteStep: 5,
+                showSeconds: false,
+                showMeridian: false
+            });
+			Dropzone.options.myDropzone = {
+					 paramName: "file", // The name that will be used to transfer the file
+					  maxFilesize: $('#maxfilesize').val(),
+					  acceptedFiles:'',
+					  accept: function(file, done) {
+									
+					     done(); 
+					  },
+					init: function () {
+			        	this.on("success", function (file,json) {
+			        		try {
+			        		    jsonResult = JSON.parse(json);
+			        		  }
+			        		  catch (e) {
+			        		    console.log("error: "+e);
+			        		  };
+							if(jsonResult.result=='ok'){
+								App.growl(jsonResult.msg,'success');
+								if(jsonResult.fileid!=''){
+									$('#uploadfileid').val($('#uploadfileid').val()+','+jsonResult.fileid);
+								}
+				            		
+							}else{
+								file.previewElement.classList.add("dz-error");
+			                    file.previewElement.querySelector("[data-dz-errormessage]").textContent = jsonResult.msg;
+			                    App.growl(jsonResult.msg,'danger');
+		
+								
+								/*if($('#file_type').val()==".PUBLIC_FILE."){
+									$('#tab_thecloud_li').pulsate({
+					                     color: "#399bc3",
+					                    reach: 50,
+					                    repeat: 3,
+					                    speed: 100,
+					                    glow: true});
+								
+									reloadTheCloudTable();
+								}
+								else if($('#file_type').val()==".PRIVATE_FILE."){
+									$('#tab_mycloud_li').pulsate({
+			                     		color: "#399bc3",
+			                    		reach: 50,
+			                    		repeat: 3,
+			                    		speed: 100,
+			                    		glow: true});
+								
+									reloadMyCloudTable();
+								}	*/
+							}
+						
+				        },this.on("sending", function(file, xhr, formData) {
+						  formData.append("file_type", $('#file_type').val()); // Will send the filesize along with the file as POST data.
+						}));
+						}
+			 }
+			
+			
+			App.init();
+		},
+		validateChannel:function(){
+			
+			if($('#channel').val()==''){
+				Panel.warnMsg($('#channel'),'emptymsg');
+				return false;
+			}else
+				Panel.removeWarning($('#channel'));
+			return true;
+		},
+		validateClient:function(){
+			if($('#client').val()==''){
+				Panel.warnMsg($('#client'),'emptymsg');
+				return false;
+			}else
+				Panel.removeWarning($('#client'));
+			return true;
+		},
+		validateCoding:function(){
+			var error = false;
+			$( ".coding" ).each(function( index ) {
+				
+				if($(this).val()==''){
+					Panel.warnMsg($(this),'emptymsg');
+					error = true
+				}else
+					Panel.removeWarning($(this));
+			});
+			if(error==false)
+				return true;
+		},
+		validateDuration:function(){
+			if($('#duration').val()=='0:00' || $('#duration').val()==''){
+				Panel.warnMsg($('#duration'),'emptymsg');
+				return false;
+			}else
+				Panel.removeWarning($('#duration'));
+			return true;
+		},
+		validateDate:function(){
+			if($('#date').val()=='0000-00-00' || $('#date').val()==''){
+				Panel.warnMsg($('#date'),'emptymsg');
+				return false;
+			}else
+				Panel.removeWarning($('#date'));
+			return true;
+		},
+		
+		validation:function(){
+
+			if(Panel.validateDate() && Panel.validateDuration() && Panel.validateChannel() && Panel.validateClient() && Panel.validateCoding())
+				return true;
+			return false;
+		},
+		
+		putWarning:function(ele){
+			ele.parent().parent().removeClass('has-success').addClass('has-warning');
+			setTimeout(function() { ele.focus(); }, 1);
+			
+			 
+		},
+		removeWarning:function(ele){
+			ele.parent().parent().removeClass('has-warning').addClass('has-success');
+		}
+		,
+		warnMsg:function(ele,type){
+			App.growl(ele.attr('data-'+type),'danger');
+			Panel.putWarning(ele);
+		}
+	}
+}();

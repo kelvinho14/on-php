@@ -1,0 +1,2 @@
+<!-- This is a Help link -->
+<a href="javascript:void(0)" class="help" title="<?=$Lang['Corp']['General']['Help'];?>" <?=isset($usercontrol_link_help_js_action)?$usercontrol_link_help_js_action:"";?> ></a>

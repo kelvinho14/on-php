@@ -1,0 +1,9 @@
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !(\\.css\\.js)$
+#RewriteRule ^some-prefix/(.*[^/])/?$ http://127.0.0.1:8081/some-prefix/$1/ [R=301,L]
+#ErrorDocument 404 /404.html
+RewriteRule ^([^?]*)$ index.php?ctr=$1 [NC,L,QSA]
+#RewriteRule ^([^?]*)$ index.php?ctr=$1 [NC,L,QSA]
+#ErrorDocument 404 /404.html

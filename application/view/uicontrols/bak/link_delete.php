@@ -1,0 +1,2 @@
+<!-- Delete Link -->
+<a href="javascript:void(0)" class="delete" title="<?=$Lang['Corp']['General']['Delete'];?>" <?=(isset($usercontrol_link_delete_js_action)?$usercontrol_link_delete_js_action:'')?> ><?=$Lang['Corp']['General']['Delete'];?></a>

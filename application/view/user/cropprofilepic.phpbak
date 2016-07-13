@@ -1,0 +1,64 @@
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true" class="pull-right">&times;</button>
+	<div class="panel-heading timeline-block">
+    	<div class="media panel-heading media-body ">
+        	<div class="media-left">
+            	
+            </div>
+			<div class="media-body">
+				<?php echo $Lang['crop_guide']?>
+		        <form method="post" id="mainform">          
+				<img src="<?php echo $Data['profilepicsrc']?>" id="profilepic" alt="Jcrop Example" />
+				<input type="hidden" id="crop_x" name="x"/>
+							<input type="hidden" id="crop_y" name="y"/>
+							<input type="hidden" id="crop_w" name="w"/>
+							<input type="hidden" id="crop_h" name="h"/>
+							<?php echo ui::btn($Lang['crop'],array('id'=>'cropbtn'))?>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<?php echo $Data['posthtml']?>
+<div class="modal-footer">
+</div>
+<script>
+jQuery(document).ready(function() {   
+	$('#profilepic').Jcrop({
+		          aspectRatio: 1,
+		          onSelect: updateCoords,
+		          boxWidth: 500, 
+		          boxHeight: 500,
+		          setSelect: [0, 160, 160, 0]
+		        });
+
+	function updateCoords(c){
+		$('#crop_x').val(c.x);
+		$('#crop_y').val(c.y);
+		$('#crop_w').val(c.w);
+	    $('#crop_h').val(c.h);
+	}
+	$('#cropbtn').click(function (e) {
+		if (parseInt($('#crop_w').val())){
+			$.post("/action/ajax_cropprofilepic", {
+        		//$.post("/app1/ajax_postobject", {
+    				x:$('#crop_x').val(),
+    				y:$('#crop_y').val(),
+    				w:$('#crop_w').val(),
+    				h:$('#crop_h').val()
+    			}, function(data) {
+    				if(data.status=='success'){
+    					location.reload(); 
+    				}else{
+    					console.log(data);
+    				}
+    			},'json');
+		}else{ 
+			alert('Please select a crop region then press submit.');
+		}
+	    return false;
+	});
+
+});
+</script>
+

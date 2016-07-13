@@ -1,0 +1,2 @@
+<!-- this is a thickbox popup link -->
+<a class="thickbox <?=(isset($usercontrol_link_thickbox_class)?$usercontrol_link_thickbox_class:'');?>" href="#TB_inline?height=<?=(isset($usercontrol_link_thickbox_layer_height)?$usercontrol_link_thickbox_layer_height:'500');?>&width=<?=(isset($usercontrol_link_thickbox_layer_width)?$usercontrol_link_thickbox_layer_width:'500');?>&inlineId=FakeLayer" <?=(isset($usercontrol_link_thickbox_js_action)?$usercontrol_link_thickbox_js_action:'');?> ><?=(isset($usercontrol_link_thickbox_title)?$usercontrol_link_thickbox_title:'');?></a> 

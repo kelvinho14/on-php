@@ -1,0 +1,137 @@
+@charset "utf-8";
+/* CSS Document */
+
+img {border: 0;}
+a img {border: none:w; color: #ffffff; background:: transparent;}
+
+html, body, table, select, input, textarea{font-family:Verdana, Arial, Helvetica, sans-serif, 新細明體, mingliu; 	font-size: 13px;}
+html {min-width:990px}
+a{text-decoration: none;color:#5b8642;}
+a:hover{text-decoration: none; color:#264d0f}
+p {margin:0}
+
+.clear {clear:both}
+
+form{margin:0; padding:0}
+
+
+
+
+
+.header_link {width:960px; margin:0 auto; position:relative}
+.header_link a.logo {display: block; width:400px; height:60px; top:-200px; left:60px; position:absolute}
+
+
+
+.content .wrap {background:#fff; width:855px; margin: 0 auto; padding-bottom:20px}
+.content .inner {padding:15px 5px 0 5px}
+.content .instruction{padding:0 30px 0 30px; clear:both}
+.content .card_list_block{padding:15px 30px 0 30px; clear:both}
+.content .card_list a img{border:4px solid #fff}
+.content .card_list a:hover img{border:4px solid #e6878b}
+.content ul.tabs {margin:0 30px; padding:30px 0 26px 0; list-style:none; border-bottom:1px solid #dacec3} /*margin:0 30px;*/
+
+
+.content ul.tabs li {float:left; padding-right:5px; display:block}
+
+
+
+
+
+.content .wrap .card_list_block .card_list {float:left; width:48%; text-align:center; padding:15px 0}
+
+a p.card_name {color:#5b8642; font-weight:bold}
+a p.des {color:#403e3e; margin-bottom:8px}
+a span.type {color:#fff; background-color:#5b8642; padding:5px 10px 5px 10px}
+
+.footer p.footermsg {color:#fff; font-size:12px; padding:70px 0 20px 0}
+.footer a {color:#fff; text-decoration:none}
+.footer a:hover {text-decoration:underline}
+
+
+/* send card*/
+.content .send_form {padding:30px 30px 0 30px; clear:both}
+.content .flash_block {padding:0 30px 0 30px; clear:both; text-align:center;}
+/*.content .swf_block {padding:0 30px 0 110px; clear:both; text-align:center;} added by Kelvin*/
+#flash_block {margin-left:100px;} /*added by Kelvin*/
+/*#flash_block {margin: 0 auto; width :100%} */
+
+h3.form_title {margin:20px 0 0 0; padding:0 0 0 5px; font-size:1em; font-weight:bold; background:url(../../../images/theme/a1/tab_left_current.gif) 0 0 no-repeat; height:26px; line-height:26px; float:left}
+h3.form_title span {background:url(../../../images/theme/a1/tab_right_current.gif) right top no-repeat #6a3c0f; padding:0 8px 0 3px; margin:0; line-height:26px; color:#fff; display:block}
+.send_form hr {padding:0; margin:0 0 10px 0; border:none; border-top:1px solid #dacec3; clear:both}
+.send_form p.q_title {float:left; width:19%; line-height:30px; text-align:right}
+.send_form p.field {float:left; width:80%; line-height:30px; clear:right; padding-left:5px}
+.send_form p.field input.long {width:250px; height:16px; margin:8px 0 8px 0}
+.send_form p.field input.short {width:80px; height:16px; margin:8px 0 8px 0}
+.send_form p.field input.file { margin:8px 0 8px 0}
+
+strong.opt_layout01 {padding:0 0 5px 30px; background: url(../../../images/theme/a1/layout01.gif) 0 0 no-repeat}
+strong.opt_layout02 {padding:0 0 5px 30px; background: url(../../../images/theme/a1/layout02.gif) 0 0 no-repeat}
+strong.opt_layout03 {padding:0 0 5px 30px; background: url(../../../images/theme/a1/layout03.gif) 0 0 no-repeat}
+
+.msg_bg_color {border-collapse:separate; border-spacing: 0px; *border-collapse: expression('separate', cellSpacing = '0px');  padding:8px 0 8px 0}
+.msg_bg_color td {text-align:center}
+.msg_bg_color td input {margin:0 5px 0 9px; height:16px;}
+.color_option {padding-left:10px}
+
+.option01{background-color:#feefe1}
+.option02{background-color:#ffffcc}
+.option03{background-color:#ccffcc}
+.option04{background-color:#333399}
+.option05{background-color:#333333}
+
+/*{float:left; width:40px; height:20px; background-color:#dddddd}*/
+
+.button_area {text-align:center; padding-top:40px}
+.button_area input 
+{
+	margin: 0 5px 0 5px;
+	width:150px;
+	font-size:12px;
+	font-weight:bold;
+	padding: 3px 0 3px 0;
+	border:1px solid;
+	border-color: #DDDDDD #DDDDDD #c6c6c6 #c6c6c6;
+	outline: none;
+	cursor:pointer;
+}
+.button_area input:focus {outline: none}
+
+.button_area input.normal {background: url(../../../images/theme/a1/button.gif) 0 0 repeat-x; color:#3f3e3c;}
+.button_area input.positive {background: url(../../../images/theme/a1/button_positive.gif) 0 0 repeat-x; color:#fff}
+.button_area input:hover.normal , .button_area input:hover.normal_on{background: url(../../../images/theme/a1/button.gif) 0 -60px repeat-x; color:#3f3e3c}
+.button_area input:hover.positive , .button_area input:hover.positive_on{background: url(../../../images/theme/a1/button_positive.gif)  0 -60px repeat-x; color:#fff}
+
+.bottom_msg {position:absolute; width:790px; margin:22px auto 0 auto; text-align:center;}
+
+/*layout01*/
+.layout01  {width:500px; margin:0 auto}
+.layout01 .preceding {font-size:18px; text-align:left; font-weight:bold; color:#6a3c0f; padding-bottom:10px}
+/* .layout01 .preceding {font-size:24px; text-align:left; font-weight:bold; color:#6a3c0f; padding-bottom:10px} */
+.layout01 .signature {font-size:18px; text-align:right; font-weight:bold; color:#6a3c0f; padding-top:10px}
+/* .layout01 .signature {font-size:24px; text-align:right; font-weight:bold; color:#6a3c0f; padding-top:10px} */
+.layout01 .card_img {padding-bottom:20px}
+.layout01 .greeting_msg {background-image:url(../../../images/theme/a1/msg_shadow.gif); background-position:right bottom; background-repeat:no-repeat; padding:15px 15px 30px 15px}
+.layout01 .bottom_msg {}
+
+/*layout02*/
+.layout02  {width:500px; margin:0 auto}
+.layout02 .preceding {font-size:18px; text-align:center; font-weight:bold; color:#6a3c0f; padding-bottom:20px}
+/* .layout02 .preceding {font-size:24px; text-align:center; font-weight:bold; color:#6a3c0f; padding-bottom:20px} */
+.layout02 .heading {font-size:18px; text-align:center; font-weight:bold; color:#6a3c0f; padding-bottom:10px}
+/* .layout02 .heading {font-size:24px; text-align:center; font-weight:bold; color:#6a3c0f; padding-bottom:10px} */
+.layout02 .signature {font-size:18px; text-align:center; font-weight:bold; color:#6a3c0f; padding-top:10px}
+/* .layout02 .signature {font-size:24px; text-align:center; font-weight:bold; color:#6a3c0f; padding-top:10px} */
+.layout02 .card_img {padding-bottom:20px}
+.layout02 .greeting_msg {background-image:url(../../../images/theme/a1/msg_shadow.gif); background-position:right bottom; background-repeat:no-repeat; padding:15px 15px 30px 15px}
+.layout02 .bottom_msg {}
+
+/*layout03*/
+.layout03  {padding:40px 0 0 11px}
+/* .layout03  {padding:20px 0 0 11px} */
+.layout03 .preceding {text-align:left; font-weight:bold; padding-bottom:10px; color:#1a1a1a}
+.layout03 .signature {text-align:right; font-weight:bold; padding-top:10px; color:#1a1a1a}
+.layout03 .card_img {padding-bottom:20px; float:left; width:500px}
+.layout03 .greeting_msg {float:left;; width:280px; margin-left:10px; background-image:url(../../../images/theme/a1/msg_shadow.gif); background-position:right bottom; background-repeat:no-repeat; padding:15px 15px 30px 15px}
+.layout03 .bottom_msg {}
+

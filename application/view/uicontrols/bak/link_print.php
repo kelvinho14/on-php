@@ -1,0 +1,2 @@
+<!-- Print Link -->
+<a href="javascript:void(0)" class="print" title="<?=$Lang['Corp']['General']['Print'];?>" <?=(isset($usercontrol_link_print_js_action)?$usercontrol_link_print_js_action:'')?> ><?=$Lang['Corp']['General']['Print'];?></a>

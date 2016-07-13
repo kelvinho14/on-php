@@ -1,0 +1,82 @@
+<html>
+<body>
+
+
+</body>
+<!--  <script src="http://dev.maruon.net/theme/assets/social/js/vendor/all.js"></script>-->
+<script
+			  src="https://code.jquery.com/jquery-3.0.0.min.js"
+			  integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0="
+			  crossorigin="anonymous"></script>
+
+<script src="//cdn.jsdelivr.net/sockjs/1/sockjs.min.js"></script>
+<script>
+
+
+
+	  /*var sock = new SockJS('http://dev.maruon.net/socket');
+	  sock.onopen = function() {
+	      console.log('open');
+	  };
+	  sock.onmessage = function(e) {
+	      console.log('message', e.data);
+	  };
+	  sock.onclose = function() {
+	      console.log('close ws');
+	  };
+
+	  //sock.send('test');
+	  sock.close();*/
+	
+
+	  /*var wsUrl = 'ws://dev.maruon.net'; 
+	  var ws = new WebSocket(wsUrl + '/socket')
+
+	  ws.onmessage = function(e) {
+	    console.log(e.data)
+	  }
+
+	  ws.onopen = function() {
+	    console.log('opening...')
+	    ws.send('hello server')
+	  }
+
+	  ws.onerror = function(error) {
+	    console.log('WEbSocket error ' + error)
+	    console.dir(error)
+	  }
+	  //ws.send('hi');*/
+	  
+	  
+	  
+
+	  
+
+	   var sock = new SockJS('http://dev.maruon.net/socket');
+	   sock.onopen = function() {
+	       console.log('open');
+	   };
+	   /*sock.onmessage = function(e) {
+	       console.log('message', e.data);
+	   };
+	   sock.onclose = function() {
+	       console.log('close');
+	   };*/
+
+	   
+	   setTimeout(function(){
+		   //sock.send('message from client');
+		 }, 2000);
+	   //sock.close();
+		
+	  
+	
+  function submitMes(){
+		alert($('#message').val());
+		sock.send($('#message').val());
+	}
+  </script>
+  <input type="textbox" name="message" id="message"/>
+  <input type="button" value="submit" onClick="submitMes()"/>
+  
+</html>

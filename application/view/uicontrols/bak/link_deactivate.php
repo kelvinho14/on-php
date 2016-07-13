@@ -1,0 +1,2 @@
+<!-- Activate Link -->
+<a href="javascript:void(0)" title="<?=$Lang['Corp']['General']['Deactivate'];?>" <?=(isset($usercontrol_link_deactivate_js_action)?$usercontrol_link_deactivate_js_action:'')?> ><?=$Lang['Corp']['General']['Deactivate'];?></a> 

@@ -1,0 +1,2 @@
+<!-- Edit Link -->
+<a href="javascript:void(0)" class="edit" title="<?=$Lang['Corp']['General']['Edit'];?>" <?=(isset($usercontrol_link_edit_js_action)?$usercontrol_link_edit_js_action:'')?> ><?=$Lang['Corp']['General']['Edit'];?></a> 

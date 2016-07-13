@@ -1,0 +1,42 @@
+
+<div class="row-fluid">
+	
+		<div class="portlet-body form">
+			<div class="control-group">
+				
+
+					<div class="row-fluid ">
+						<div class="span12">
+						<?php
+						$input['id']         = 'staffs';
+						$input['attr'] = array('data-placeholder'=>'Your Favorite Football Teams','class'=>'chosen span6','tabindex'=>'6');
+						UIElementController::render("tagselect",$input);
+						unset($input);?>
+						</div>
+					</div>
+					<div class="row-fluid ">
+						<div class="span12">
+							<ul class="unstyled staff-images" id="pickedstaff">
+							<?php for($a=0;$a<20;$a++){
+								$id = $a;?>
+								<li><a href="javascript:void(0)"
+									onClick="focusStaff(<?php echo $a?>);"><img src="http://demo.officable.com/met/admin/template_content/assets/img/profile/profile-img.png" alt="" > </a>
+								</li>
+								<?php }?>
+							</ul>
+							<!--  </div>-->
+						</div>
+					</div>
+					<div class="row-fluid ">
+						<div class="span12" id="staff_detail">
+						</div>
+					</div>
+				
+			</div>
+			<div class="form-actions">
+			<?php
+			saveBtn()
+		?>
+			</div>
+		</div>
+</div>

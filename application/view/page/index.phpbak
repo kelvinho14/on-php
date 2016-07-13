@@ -1,0 +1,101 @@
+<?php 
+if(function_exists('preventDA')){
+	preventDA();
+}else{
+	die;
+}
+
+//$_PLUGIN['datepicker'] = 1;
+//$_PLUGIN['calendar'] = 1;
+$size = sizeof($Data['widget']);
+
+$_PAGE['jsfile'] = array();
+$_PAGE['jsfile'][] = 'artist/profile.js';
+$_PAGE['cssfile'] = array('assets/admin/pages/css/profile.css');
+$_FOOTER['ready_js'] = 'Profile.init();';
+// for($a=0;$a<$size;$a++){
+// 	$_PAGE['jsfile'][] = $Data['widget'][$a].'/widget.js';
+// 	$_FOOTER['ready_js'] .= ucfirst($Data['widget'][$a]).'.init();';
+// 	$_PAGE['cssfile'][] = 'assets/admin/pages/css/'.$Data['widget'][$a].'.css';
+// }
+
+
+
+
+$_FOOTER['ready_js'] .= 'App.init();';
+
+$app = new Application();
+$_PAGE['sidebar_dashboard'] = 1;
+include_once 'application/view/template/'.$CONFIG['theme'].'/header.php';
+?>
+
+<!-- BEGIN CONTAINER -->
+<?php ui::div_s(array('class'=>'container'))?>
+	<!-- BEGIN CONTAINER -->
+
+	<?php ui::div_s(array('class'=>'page-container'))?>
+	
+		<?php ui::div_s(array('class'=>'page-content-wrapper'))?>
+			<!-- BEGIN PAGE -->
+			<div>
+				<!-- BEGIN PAGE CONTAINER-->
+						
+							<h3 class="page-title">
+				<?php echo $Data['artist']['Name']?>
+				</h3>
+				<?php ui::div_s(array('class'=>'page-bar'))?>
+				<?php ui::div_e()?>
+				<div class="row" >
+							<div class="row row-sm"> 
+							
+							<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2"> 
+							<div class="item"> <div class="pos-rlt"> <div class="bottom"> <span class="badge bg-info m-l-sm m-b-sm">03:20</span> </div> <div class="item-overlay opacity r r-2x bg-black"> <div class="text-info padder m-t-sm text-sm"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o text-muted"></i> </div> <div class="center text-center m-t-n"> <a href="#"><i class="icon-control-play i-2x"></i></a> </div> <div class="bottom padder m-b-sm"> <a class="pull-right" href="#"> <i class="fa fa-heart-o"></i> </a> <a href="#"> <i class="fa fa-plus-circle"></i> </a> </div> </div> <a href="#"><img class="r r-2x img-full" alt="" src="http://flatfull.com/themes/musik/images/p1.jpg"></a> </div> <div class="padder-v"> <a class="text-ellipsis" href="#">Tempered Song</a> <a class="text-ellipsis text-xs text-muted" href="#">Miaow</a> </div> </div> 
+							</div> 
+							
+							<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2"> <div class="item"> <div class="pos-rlt"> <div class="item-overlay opacity r r-2x bg-black active"> <div class="text-info padder m-t-sm text-sm"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o text-muted"></i> <i class="fa fa-star-o text-muted"></i> </div> <div class="center text-center m-t-n"> <a data-toggle="class" href="#"> <i class="icon-control-play i-2x text"></i> <i class="icon-control-pause i-2x text-active"></i> </a> </div> <div class="bottom padder m-b-sm"> <a data-toggle="class" class="pull-right active" href="#"> <i class="fa fa-heart-o text"></i> <i class="fa fa-heart text-active text-danger"></i> </a> <a data-toggle="class" href="#"> <i class="fa fa-plus-circle text"></i> <i class="fa fa-check-circle text-active text-info"></i> </a> </div> </div> <a href="#"><img class="r r-2x img-full" alt="" src="http://flatfull.com/themes/musik/images/p2.jpg"></a> </div> <div class="padder-v"> <a class="text-ellipsis" href="#">Vivamus vel tincidunt libero</a> <a class="text-ellipsis text-xs text-muted" href="#">Lauren Taylor</a> </div> </div> </div> 
+								<div class="clearfix visible-xs"></div> 
+							
+							<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2"> 
+								<div class="item"> <div class="pos-rlt"> <div class="item-overlay opacity r r-2x bg-black"> <div class="text-info padder m-t-sm text-sm"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o text-muted"></i> </div> <div class="center text-center m-t-n"> <a href="#"><i class="icon-control-play i-2x"></i></a> </div> <div class="bottom padder m-b-sm"> <a class="pull-right" href="#"> <i class="fa fa-heart-o"></i> </a> <a href="#"> <i class="fa fa-plus-circle"></i> </a> </div> </div> <a href="#"><img class="r r-2x img-full" alt="" src="http://flatfull.com/themes/musik/images/p3.jpg"></a> </div> <div class="padder-v"> <a class="text-ellipsis" href="#">Morbi id neque quam liquam sollicitudin</a> <a class="text-ellipsis text-xs text-muted" href="#">Allen JH</a> </div> </div> </div> 
+							
+							<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2"><div class="item"> <div class="pos-rlt"> <div class="item-overlay opacity r r-2x bg-black"> <div class="text-info padder m-t-sm text-sm"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o text-muted"></i> </div> <div class="center text-center m-t-n"> <a href="#"><i class="icon-control-play i-2x"></i></a> </div> <div class="bottom padder m-b-sm"> <a class="pull-right" href="#"> <i class="fa fa-heart-o"></i> </a> <a href="#"> <i class="fa fa-plus-circle"></i> </a> </div> </div> <div class="top"> <span class="pull-right m-t-n-xs m-r-sm text-white"> <i class="fa fa-bookmark i-lg"></i> </span> </div> <a href="#"><img class="r r-2x img-full" alt="" src="http://flatfull.com/themes/musik/images/p4.jpg"></a> </div> <div class="padder-v"> <a class="text-ellipsis" href="#">Tincidunt libero</a> <a class="text-ellipsis text-xs text-muted" href="#">Amanda Conlan</a> </div> </div> 
+							</div> 
+								<div class="clearfix visible-xs"></div> 
+							
+							<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2"> <div class="item"> <div class="pos-rlt"> <div class="item-overlay opacity r r-2x bg-black"> <div class="text-info padder m-t-sm text-sm"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o text-muted"></i> </div> <div class="center text-center m-t-n"> <a href="#"><i class="icon-control-play i-2x"></i></a> </div> <div class="bottom padder m-b-sm"> <a class="pull-right" href="#"> <i class="fa fa-heart-o"></i> </a> <a href="#"> <i class="fa fa-plus-circle"></i> </a> </div> </div> <a href="#"><img class="r r-2x img-full" alt="" src="http://flatfull.com/themes/musik/images/p5.jpg"></a> </div> <div class="padder-v"> <a class="text-ellipsis" href="#">Fermentum diam</a> <a class="text-ellipsis text-xs text-muted" href="#">Nisa Colen</a> </div> </div> </div> 
+							
+							<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2"> <div class="item"> <div class="pos-rlt"> <div class="top"> <span class="pull-right m-t-sm m-r-sm badge bg-info">6</span> </div> <div class="item-overlay opacity r r-2x bg-black"> <div class="text-info padder m-t-sm text-sm"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o text-muted"></i> </div> <div class="center text-center m-t-n"> <a href="#"><i class="icon-control-play i-2x"></i></a> </div> <div class="bottom padder m-b-sm"> <a class="pull-right" href="#"> <i class="fa fa-heart-o"></i> </a> <a href="#"> <i class="fa fa-plus-circle"></i> </a> </div> </div> <a href="#"><img class="r r-2x img-full" alt="" src="http://flatfull.com/themes/musik/images/p6.jpg"></a> </div> <div class="padder-v"> <a class="text-ellipsis" href="#">Habitant</a> <a class="text-ellipsis text-xs text-muted" href="#">Dan Doorack</a> </div> </div> </div> 
+								<div class="clearfix visible-xs"></div> 
+							<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2"> <div class="item"> <div class="pos-rlt"> <div class="item-overlay opacity r r-2x bg-black"> <div class="text-info padder m-t-sm text-sm"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o text-muted"></i> </div> <div class="center text-center m-t-n"> <a href="#"><i class="icon-control-play i-2x"></i></a> </div> <div class="bottom padder m-b-sm"> <a class="pull-right" href="#"> <i class="fa fa-heart-o"></i> </a> <a href="#"> <i class="fa fa-plus-circle"></i> </a> </div> </div> <div class="top"> <span class="pull-right m-t-sm m-r-sm badge bg-white">12</span> </div> <a href="#"><img class="r r-2x img-full" alt="" src="http://flatfull.com/themes/musik/images/p7.jpg"></a> </div> <div class="padder-v"> <a class="text-ellipsis" href="#">Vivamus vel tincidunt libero</a> <a class="text-ellipsis text-xs text-muted" href="#">Ligula H</a> </div> </div> </div> 
+							
+							<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2"> <div class="item"> <div class="pos-rlt"> <div class="item-overlay opacity r r-2x bg-black"> <div class="text-info padder m-t-sm text-sm"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o text-muted"></i> </div> <div class="center text-center m-t-n"> <a href="#"><i class="icon-control-play i-2x"></i></a> </div> <div class="bottom padder m-b-sm"> <a class="pull-right" href="#"> <i class="fa fa-heart-o"></i> </a> <a href="#"> <i class="fa fa-plus-circle"></i> </a> </div> </div> <a href="#"><img class="r r-2x img-full" alt="" src="http://flatfull.com/themes/musik/images/p8.jpg"></a> </div> <div class="padder-v"> <a class="text-ellipsis" href="#">Aliquam sollicitudin venenati</a> <a class="text-ellipsis text-xs text-muted" href="#">James East</a> </div> </div> </div> 
+							<div class="clearfix visible-xs"></div> 
+							
+							<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2"> <div class="item"> <div class="pos-rlt"> <div class="item-overlay opacity r r-2x bg-black"> <div class="text-info padder m-t-sm text-sm"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o text-muted"></i> </div> <div class="center text-center m-t-n"> <a href="#"><i class="icon-control-play i-2x"></i></a> </div> <div class="bottom padder m-b-sm"> <a class="pull-right" href="#"> <i class="fa fa-heart-o"></i> </a> <a href="#"> <i class="fa fa-plus-circle"></i> </a> </div> </div> <a href="#"><img class="r r-2x img-full" alt="" src="http://flatfull.com/themes/musik/images/p9.jpg"></a> </div> <div class="padder-v"> <a class="text-ellipsis" href="#">Lementum ligula vitae</a> <a class="text-ellipsis text-xs text-muted" href="#">Lauren Taylor</a> </div> </div> 
+							</div> 
+							
+							<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2"> <div class="item"> <div class="pos-rlt"> <div class="item-overlay r r-2x bg-light dker active"> <div class="text-info padder m-t-sm text-sm"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o text-muted"></i> </div> <div class="center text-center m-t-n"> <a class="active" data-toggle="class" href="#"> <i class="icon-control-play i-2x text"></i> <i class="icon-control-pause i-2x text-active"></i> </a> </div> <div class="bottom padder m-b-sm"> <a data-toggle="class" class="pull-right" href="#"> <i class="fa fa-heart-o text"></i> <i class="fa fa-heart text-active text-danger"></i> </a> <a data-toggle="class" class="active" href="#"> <i class="fa fa-plus-circle text"></i> <i class="fa fa-check-circle text-active text-info"></i> </a> </div> </div> <a href="#"><img class="r r-2x img-full" alt="" src="http://flatfull.com/themes/musik/images/p10.jpg"></a> </div> <div class="padder-v"> <a class="text-ellipsis" href="#">Egestas dui nec fermentum </a> <a class="text-ellipsis text-xs text-muted" href="#">Chris Fox</a> </div> </div> 
+							</div> 
+							<div class="clearfix visible-xs"></div> 
+							
+							<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2"> <div class="item"> <div class="pos-rlt"> <div class="item-overlay opacity r r-2x bg-black"> <div class="text-info padder m-t-sm text-sm"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o text-muted"></i> </div> <div class="center text-center m-t-n"> <a href="#"><i class="icon-control-play i-2x"></i></a> </div> <div class="bottom padder m-b-sm"> <a class="pull-right" href="#"> <i class="fa fa-heart-o"></i> </a> <a href="#"> <i class="fa fa-plus-circle"></i> </a> </div> </div> <a href="#"><img class="r r-2x img-full" alt="" src="http://flatfull.com/themes/musik/images/p11.jpg"></a> </div> <div class="padder-v"> <a class="text-ellipsis" href="#">Aliquam sollicitudin venenatis ipsum</a> <a class="text-ellipsis text-xs text-muted" href="#">Jack Jason</a> </div> </div> 
+							</div> 
+							
+							<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2"> <div class="item"> <div class="pos-rlt"> <div class="item-overlay opacity r r-2x bg-black"> <div class="text-info padder m-t-sm text-sm"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o text-muted"></i> </div> <div class="center text-center m-t-n"> <a href="#"><i class="icon-control-play i-2x"></i></a> </div> <div class="bottom padder m-b-sm"> <a class="pull-right" href="#"> <i class="fa fa-heart-o"></i> </a> <a href="#"> <i class="fa fa-plus-circle"></i> </a> </div> </div> <a href="#"><img class="r r-2x img-full" alt="" src="http://flatfull.com/themes/musik/images/p12.jpg"></a> </div> <div class="padder-v"> <a class="text-ellipsis" href="#">Vestibulum ullamcorper</a> <a class="text-ellipsis text-xs text-muted" href="#">MM &amp; DD</a> </div> </div> </div> 
+							</div>
+					
+					
+				</div>
+				<!-- END DASHBOARD STATS -->
+				<div class="clearfix">
+				</div>
+				
+			
+			
+		</div>
+	</div>
+</div>
+
+	<?php
+	include_once 'application/view/template/'.$CONFIG['theme'].'/footer.php';
+	?>

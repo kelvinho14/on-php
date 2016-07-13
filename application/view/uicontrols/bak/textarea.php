@@ -1,0 +1,1 @@
+<textarea class=" m-wrap <?php echo $ElementData["Class"]==''?'span6':$ElementData["Class"]?>" rows="<?php  echo $ElementData["Row"]==''?3:$ElementData["Row"]?>" id="<?php echo $ElementData["ID"]?>" name="<?php echo $ElementData["Name"]?>" placeholder="<?php echo $ElementData["Placeholder"]?>"><?php echo $ElementData["Value"]?></textarea>

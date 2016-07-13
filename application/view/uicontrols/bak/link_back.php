@@ -1,0 +1,2 @@
+<!-- Back Link -->
+<a href="javascript:void(0)" title="<?=$Lang['Corp']['General']['Back'];?>" <?=(isset($usercontrol_link_back_js_action)?$usercontrol_link_back_js_action:'')?> ><?=$Lang['Corp']['General']['Back'];?></a> 

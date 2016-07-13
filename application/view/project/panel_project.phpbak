@@ -1,0 +1,172 @@
+<?php
+
+$input ['title'] = 'Project Name';
+UIElementController::render ( "portlet_start", $input );
+unset ( $input );
+?>
+<h4>
+<?php echo $ElementData['heading']?>
+</h4>
+
+
+<form action="#" class="horizontal-form">
+	<div class="form-body">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="form-group">
+				<?php
+				$input ['for'] = 'name';
+				$input ['value'] = '<b>Project Name</b>';
+				$input ['attr'] = array (
+												'class' => 'control-label' 
+												);
+
+												UIElementController::render ( "label", $input );
+												unset ( $input );
+												?>
+					<br />
+					<?php
+					$input ['id'] = 'name';
+					//$input ['value'] = 'Project 1';
+					$input ['attr'] = array (
+													'class' => 'editabletext',
+													'data-pk' => 1,
+													'data-type' => 'text',
+													'data-placement' => 'right',
+													'data-placeholder' => 'Required',
+													'data-original-title' => 'Enter your firstname' 
+													);
+
+													UIElementController::render ( "a", $input );
+													unset ( $input );
+													?>
+					<span class="help-block"> This is inline help </span>
+				</div>
+			</div>
+			<!--/span-->
+
+			<!--/span-->
+		</div>
+		<!--/row-->
+		<div class="row">
+			<div class="col-md-12">
+				<div class="form-group">
+				<?php
+				$input ['for'] = 'description';
+				$input ['value'] = '<b>Description</b>';
+				$input ['attr'] = array (
+												'class' => 'control-label' 
+												);
+
+												UIElementController::render ( "label", $input );
+												unset ( $input );
+												?>
+												<?php
+												$input ['id'] = 'description';
+												$input ['value'] = '';
+												$input ['attr'] = array (
+													'class' => '',
+													'data-pk' => 1,
+													'data-type' => 'wysihtml5',
+													'data-toggle' => 'manual',
+													'data-original-title' => 'Enter notes' 
+													);
+													UIElementController::render ( "div", $input );
+													unset ( $input );
+													?>
+
+
+				</div>
+			</div>
+		</div>
+		<!--/span-->
+		<div class="row">
+			<div class="col-md-6 ">
+				<div class="form-group">
+				<?php
+				$input ['for'] = 'start';
+				$input ['value'] = '<b>Project start</b>';
+				$input ['attr'] = array (
+												'class' => 'control-label' 
+												);
+												UIElementController::render ( "label", $input );
+												unset ( $input );
+												?>
+					<br />
+					<?php
+					$input ['id'] = 'start';
+					$input ['attr'] = array (
+													'data-type' => 'date',
+													'data-pk' => '1',
+													'data-placement' => 'right',
+													'data-original-title' => 'Set date & time',
+													'data-viewformat' => 'yyyy-mm-dd' 
+													);
+													$input ['value'] = '2016-04-14';
+													UIElementController::render ( "a", $input );
+													unset ( $input );
+
+													?>
+				</div>
+			</div>
+			<div class="col-md-6 ">
+				<div class="form-group">
+				<?php
+				$input ['for'] = 'end';
+				$input ['value'] = '<b>Project deadline</b>';
+				$input ['attr'] = array (
+												'class' => 'control-label' 
+												);
+												UIElementController::render ( "label", $input );
+												unset ( $input );
+												?>
+					<br />
+					<?php
+					$input ['id'] = 'end';
+					$input ['attr'] = array (
+													'data-type' => 'date',
+													'data-pk' => '1',
+													'data-placement' => 'right',
+													'data-original-title' => 'Set date & time',
+													'data-viewformat' => 'yyyy-mm-dd' 
+													);
+													$input ['value'] = '2016-04-14';
+													UIElementController::render ( "a", $input );
+													unset ( $input );
+													?>
+				</div>
+			</div>
+		</div>
+		<!--/span-->
+
+		<!--/row-->
+
+		<!--/row-->
+		<h3 class="form-section">Client</h3>
+		<div class="row">
+			<div class="col-md-12 ">
+				<div class="form-group">
+				<?php
+				$input ['id'] = 'clientid';
+				$input ['attr'] = array (
+													'data-type' => 'select2',
+													'data-pk' => '1',
+													'data-value' => 'BD',
+													'data-original-title' => 'Select Client' 
+													);
+
+													UIElementController::render ( "a", $input );
+													unset ( $input );
+													?>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+</form>
+
+													<?php
+
+													UIElementController::render ( "portlet_end" );
+													?>

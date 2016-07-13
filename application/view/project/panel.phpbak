@@ -1,0 +1,247 @@
+<?php
+$_PLUGIN ['editable'] = 1;
+$page_jsfile = '/include/js/project/panel.js';
+$page_cssfile = '/include/css/project/panel.css';
+
+include_once 'application/view/template/admin/admin_header.php';
+?>
+
+<!-- BEGIN CONTAINER -->
+<div class="page-container">
+
+	<?php
+	$sidebar_staff_active = 1;
+	$sidebar_staff_staff_active = 1;
+	$sidebar_staff_list_staff_active = 1;
+	include_once 'application/view/template/admin/admin_sidebar.php';
+	?>
+<div class="page-content-wrapper">	
+	<!-- BEGIN PAGE -->
+	<div class="page-content">
+		<!-- BEGIN PAGE CONTAINER-->
+		<div class="container-fluid">
+			<!-- BEGIN PAGE HEADER-->
+			<div class="row-fluid">
+				<div class="span12">
+				<?php include_once 'application/view/template/admin/admin_style.php';?>
+					<h3 class="page-title">
+						aa <small><?php echo $Lang['staff_mgt_desc'];?> </small>
+					</h3>
+
+					<?php
+					$breadcrumb_arr = array (
+							array (
+									'name' => $Lang ['view_staff'] 
+							) 
+					);
+					UIElementController::render ( "breadcrumb", $breadcrumb_arr );
+					?>
+
+
+				</div>
+			</div>
+			<!-- END PAGE HEADER-->
+			<!-- BEGIN PAGE CONTENT-->
+			<div class="row-fluid ">
+				<div class="span6">
+					<!-- BEGIN TAB PORTLET-->
+					<div class="portlet box blue">
+						<div class="portlet-title">
+							<div class="caption">
+								<i class="icon-reorder"></i>Project info
+							</div>
+							<div class="tools">
+								<a class="collapse" href="javascript:;"></a> <a class="config"
+									data-toggle="modal" href="#portlet-config"></a> <a
+									class="reload" href="javascript:;"></a> <a class="remove"
+									href="javascript:;"></a>
+							</div>
+						</div>
+						<div class="portlet-body form">
+							<!-- BEGIN FORM-->
+							<form class="horizontal-form" action="#">
+								<div class="row-fluid">
+									<div class="span6 ">
+										<div class="control-group">
+										<?php
+										$input ['for'] = 'name';
+										$input ['value'] = '<b>Project Name</b>';
+										$input ['attr'] = array (
+												'class' => 'control-label' 
+										);
+										
+										UIElementController::render ( "label", $input );
+										unset ( $input );
+										?>
+											<div class="controls">
+											<?php
+											$input ['id'] = 'name';
+											$input ['value'] = 'Project 1';
+											$input ['attr'] = array (
+													'class' => 'editabletext',
+													'data-pk' => 1,
+													'data-type' => 'text',
+													'data-placement' => 'right',
+													'data-placeholder' => 'Required',
+													'data-original-title' => 'Enter your firstname' 
+											);
+											
+											UIElementController::render ( "a", $input );
+											unset ( $input );
+											?>
+												<span class="help-block">This is inline help</span>
+											</div>
+										</div>
+									</div>
+									<!--/span-->
+									<div class="span6 ">
+										<div class="control-group">
+										<?php
+										$input ['for'] = 'description';
+										$input ['value'] = '<b>Description</b>';
+										$input ['attr'] = array (
+												'class' => 'control-label' 
+										);
+										
+										UIElementController::render ( "label", $input );
+										unset ( $input );
+										?>
+											<div class="controls">
+											<?php
+											$input ['id'] = 'description';
+											$input ['value'] = '';
+											$input ['attr'] = array (
+													'class' => '',
+													'data-pk' => 1,
+													'data-type' => 'wysihtml5',
+													'data-toggle' => 'manual',
+													'data-original-title' => 'Enter notes' 
+											);
+											UIElementController::render ( "div", $input );
+											unset ( $input );
+											?>
+
+											<?php
+											/*
+											 * $input['id'] 		= 'description_pencil';
+											 * $input['value']		= '<i class="icon-pencil"></i> [edit]';
+											 * UIElementController::render("a",$input);
+											 * unset($input);
+											 */
+											?>
+
+
+												<span class="help-block">This field has error.</span>
+											</div>
+										</div>
+									</div>
+									<!--/span-->
+								</div>
+								<!--/row-->
+								<div class="row-fluid">
+									<div class="span6 ">
+										<div class="control-group">
+										<?php
+										$input ['for'] = 'clientid';
+										$input ['value'] = '<b>Client</b>';
+										$input ['attr'] = array (
+												'class' => 'control-label' 
+										);
+										UIElementController::render ( "label", $input );
+										unset ( $input );
+										?>
+											<div class="controls">
+											<?php
+											$input ['id'] = 'clientid';
+											$input ['attr'] = array (
+													'data-type' => 'select2',
+													'data-pk' => '1',
+													'data-value' => 'BD',
+													'data-original-title' => 'Select Client' 
+											);
+											
+											UIElementController::render ( "a", $input );
+											unset ( $input );
+											?>
+											</div>
+										</div>
+									</div>
+									<!--/span-->
+									<div class="span6 ">
+										<div class="control-group">
+										<?php
+										$input ['for'] = 'start';
+										$input ['value'] = '<b>Project start</b>';
+										$input ['attr'] = array (
+												'class' => 'control-label' 
+										);
+										UIElementController::render ( "label", $input );
+										unset ( $input );
+										?>
+											<div class="controls">
+											<?php
+											$input ['id'] = 'start';
+											$input ['attr'] = array (
+													'data-type' => 'date',
+													'data-pk' => '1',
+													'data-placement' => 'right',
+													'data-original-title' => 'Set date & time',
+													'data-viewformat' => 'yyyy-mm-dd' 
+											);
+											$input ['value'] = '2016-04-14';
+											UIElementController::render ( "a", $input );
+											unset ( $input );
+											/*
+											 * $input['id'] 		= 'start';
+											 * $input['attr']		= array('data-type'=>'datetime','data-pk'=>'1','data-placement'=>'right','title'=>'Set date & time');
+											 * $input['value']		= '2016-04-14 12:45';
+											 * //UIElementController::render("a",$input);
+											 * unset($input);
+											 */
+											?>
+											</div>
+										</div>
+									</div>
+									<!--/span-->
+								</div>
+
+
+
+								<div class="form-actions">
+									<button class="btn blue" type="submit">
+										<i class="icon-ok"></i> Save
+									</button>
+									<button class="btn" type="button">Cancel</button>
+								</div>
+							</form>
+							<!-- END FORM-->
+						</div>
+					</div>
+				</div>
+
+				<div class="span6">
+					<!-- BEGIN TAB PORTLET-->
+					<div class="portlet box blue" id="discussion">
+					<?php //include_once('panel_discussion.php')?>
+					</div>
+				</div>
+				<!-- END TAB PORTLET-->
+			</div>
+			
+			<?php include_once('panel_milestone.php')?>
+			<?php //include_once('panel_file.php')?>
+			
+
+			<!-- END PAGE CONTENT-->
+		</div>
+		<!-- END PAGE CONTAINER-->
+	</div>
+	<!-- END PAGE -->
+</div>
+</div>
+<!-- END CONTAINER -->
+
+<?php
+$ready_js .= Display_Action_Msg ();
+include_once 'application/view/template/admin/admin_footer.php';
+?>

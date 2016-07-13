@@ -1,0 +1,2 @@
+<!-- New Link -->
+<a href="javascript:void(0)" class="new" title="<?=$Lang['Corp']['General']['New'];?>" <?=(isset($usercontrol_link_new_js_action)?$usercontrol_link_new_js_action:'')?> ><?=$Lang['Corp']['General']['New'];?></a>

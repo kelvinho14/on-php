@@ -1,0 +1,1 @@
+<span style="color:#FCB322"><i class="icon-warning-sign"></i></span> <?php echo $ElementData['msg'];?>
